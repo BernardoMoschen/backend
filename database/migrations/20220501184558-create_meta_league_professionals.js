@@ -35,6 +35,17 @@ module.exports = {
             key: 'id'
           },
         },
+        team_id: {
+          type: Sequelize.DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: 'meta_league_teams',
+              schema: 'public'
+            },
+            key: 'id'
+          },
+        },
         active: {
           type: Sequelize.DataTypes.BOOLEAN,
           defaultValue: true,
