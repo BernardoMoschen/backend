@@ -1,4 +1,4 @@
-const {Professionals, Project, Managers} = require('../models')
+// const {Project} = require('../models')
 
 module.exports = (sequelize: any, DataTypes: any) => {
   const Feedback = sequelize.define(
@@ -12,26 +12,26 @@ module.exports = (sequelize: any, DataTypes: any) => {
       professional_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Professionals,
-          key: 'id'
-        }
+        // references: {
+        //   model: Professionals,
+        //   key: 'id'
+        // }
       },
       project_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Project,
-          key: 'id'
-        }
+        // references: {
+        //   model: Project,
+        //   key: 'id'
+        // }
       },
       manager_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Managers,
-          key: 'id'
-        }
+        // references: {
+        //   model: Managers,
+        //   key: 'id'
+        // }
       },
       copy_to: {
         type: DataTypes.TEXT,

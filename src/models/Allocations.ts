@@ -1,4 +1,4 @@
-const {Professionals, Projects, Managers} = require('../models')
+// const { Professionals, Projects, Managers } = require('../models')
 
 module.exports = (sequelize: any, DataTypes: any) => {
   const Allocations = sequelize.define(
@@ -12,26 +12,26 @@ module.exports = (sequelize: any, DataTypes: any) => {
       professional_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Professionals,
-          key: 'id'
-        }
+        // references: {
+        //   model: Professionals,
+        //   key: 'id'
+        // }
       },
       project_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Projects,
-          key: 'id'
-        }
+        // references: {
+        //   model: Projects,
+        //   key: 'id'
+        // }
       },
       manager_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Managers,
-          key: 'id'
-        }
+        // references: {
+        //   model: Managers,
+        //   key: 'id'
+        // }
       },
       active: {
         type: DataTypes.BOOLEAN,

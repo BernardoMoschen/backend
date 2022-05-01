@@ -1,4 +1,4 @@
-const {Phases, Teams} = require('../models')
+// const {Phases, Teams} = require('../models')
 
 module.exports = (sequelize: any, DataTypes: any) => {
   const Professionals = sequelize.define(
@@ -28,18 +28,18 @@ module.exports = (sequelize: any, DataTypes: any) => {
       phase_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Phases,
-          key: 'id'
-        }
+        // references: {
+        //   model: Phases,
+        //   key: 'id'
+        // }
       },
       team_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: Teams,
-          key: 'id'
-        }
+        // references: {
+        //   model: Teams,
+        //   key: 'id'
+        // }
       },
       active: {
         type: DataTypes.BOOLEAN,
