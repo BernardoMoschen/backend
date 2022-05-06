@@ -60,5 +60,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
   )
 
+  Professionals.associate = function (models: any) {
+    Professionals.belongsTo(models.Allocations, {
+      foreignKey: 'id',
+      targetKey: 'professional_id'
+    })
+  }
+
   return Professionals
 }

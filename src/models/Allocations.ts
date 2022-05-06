@@ -52,5 +52,22 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
   )
 
+  Allocations.associate = function (models: any) {
+    Allocations.hasOne(models.Professionals, {
+      sourceKey: 'professional_id',
+      foreignKey: 'id'
+    })
+
+    Allocations.hasOne(models.Projects, {
+      sourceKey: 'project_id',
+      foreignKey: 'id'
+    })
+
+    Allocations.hasOne(models.Managers, {
+      sourceKey: 'manager_id',
+      foreignKey: 'id'
+    })
+  }
+
   return Allocations
 }

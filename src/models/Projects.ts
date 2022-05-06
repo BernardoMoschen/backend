@@ -30,5 +30,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
   )
 
+  Projects.associate = function (models: any) {
+    Projects.belongsTo(models.Allocations, {
+      foreignKey: 'id',
+      targetKey: 'project_id'
+    })
+  }
+
   return Projects
 }
