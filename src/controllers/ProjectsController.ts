@@ -17,4 +17,21 @@ export class ProjectsController {
           )
       })
   }
+
+static async getProjectSummaryById (
+  request: Request,
+  response: Response
+): Promise<any> {
+  const {projectId} = request.body
+  return ProjectServices.findProjectSummaryById(projectId)
+    .then((projectsList: any[]) => {
+      return response.status(200).send(projectsList)
+    })
+    .catch((error: any) => {
+      return response
+        .status(500)
+        .send(`There was an error in the application while trying to retrieve the projects list: ${error.message}`
+        )
+    })
+}
 }
