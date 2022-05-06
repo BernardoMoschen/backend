@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+
 module.exports = {
   username: 'postgres',
   password: 'MetaLeague',

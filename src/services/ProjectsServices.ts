@@ -6,12 +6,7 @@ export default class ProjectsService {
       attributes: ['id', 'name', 'active']
     })
       .then(async (projectsList: any) => {
-        return projectsList.map((project: any) => {
-          return {
-              ...project.dataValues,
-              projectName: project.name
-          }
-        })
+        return projectsList
       }).catch((error: any) => {
         throw Error(`findAllProjects has failed: ${error.message}`)
       })
