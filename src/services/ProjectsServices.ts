@@ -9,7 +9,8 @@ export default class ProjectsService {
         model: Allocations,
         attributes: []
       },
-      group: ['Projects.id', 'Allocation.id']
+      order: [['name', 'ASC']],
+      group: ['Projects.id'],
     })
       .then(async (projectsList: any) => {
         return projectsList
