@@ -7,10 +7,31 @@ export default class AllocationsServices {
         project_id: projectId,
       },
       attributes: ['active', 'created_at', 'updated_at'], 
-      include: allocationsAssociations
+      include: allocationsAssociations,
     })
-      .then(async (allocationsList: any) => {
-        return allocationsList
+      .then(async (allocationsList: any[]) => {
+        const activeAllocationsList = allocationsList.map((allocation: any) => { 
+          if(allocation.active === true) {
+            return {
+              professionalName: allocation.Professional.name,
+              managerName: allocation.Manager.name,
+              ingressDate: allocation.created_at
+            }
+          }
+         })
+         const inactiveAllocationsList = allocationsList.map((allocation: any) => { 
+          if(allocation.active === false) {
+            return {
+              professionalName: allocation.Professional.name,
+              managerName: allocation.Manager.name,
+              ingressDate: allocation.updated_at
+            }
+          }
+         })
+         return  {
+           activeAllocationsList: activeAllocationsList,
+           inactiveAllocationsList: inactiveAllocationsList
+          }
       })
       .catch((error: any) => {
         throw Error(`findAllAllocationsByProjectId has failed: ${error.message}`)
