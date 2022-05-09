@@ -1,9 +1,15 @@
 const { Projects, Allocations, Professionals, Managers } = require('../models')
+import {fn, col} from 'sequelize'
 
 export default class ProjectsService {
   static async findAllProjects (): Promise<any> {
     return Projects.findAll({
-      attributes: ['id', 'name', 'active']
+      attributes: ['id', 'name', 'active', [fn("COUNT", col("Allocation.id")), "allocations"]],
+      include: {
+        model: Allocations,
+        attributes: []
+      },
+      group: ['Projects.id', 'Allocation.id']
     })
       .then(async (projectsList: any) => {
         return projectsList
