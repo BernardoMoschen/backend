@@ -61,6 +61,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
   )
 
   Professionals.associate = function (models: any) {
+
+    Professionals.hasOne(models.Phases, {
+      phase_id: 'professional_id',
+      foreignKey: 'id',
+    }),
+
     Professionals.belongsTo(models.Allocations, {
       foreignKey: 'id',
       targetKey: 'professional_id'
