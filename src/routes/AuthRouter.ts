@@ -3,6 +3,6 @@ import { Router } from 'express'
 
 const AuthRouter = Router()
 
-AuthRouter.post('/log-in', AuthController.LogIn)
+AuthRouter.post('/login', AuthController.LogIn)
 
 export default AuthRouter
