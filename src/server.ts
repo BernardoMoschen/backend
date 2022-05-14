@@ -1,10 +1,18 @@
 import express, { Request, Response } from 'express'
-import http from 'http'
+import https from 'https'
+import cors from 'cors'
 import Routes from './routes/Routes'
+import fs from 'fs'
+
+const ssl = {
+  key: fs.readFileSync("ssl.key"),
+  cert: fs.readFileSync("ssl.cert")
+}
 
 const app = () => {
   const app = express()
 
+  app.use(cors())
 
   app.use((_: Request, res: Response, next) => {
     res.header(
@@ -32,10 +40,10 @@ const app = () => {
 
   app.use(Routes)
 
-  const server = http.createServer(app)
+  const server = https.createServer(ssl, app)
 
   server.on('listening', () => {
-    console.info(`Server listening on port ${process.env.PORT}...`)
+    console.info(`Server listening on port ${process.env.SERVER_PORT}...`)
   })
 
   return server
