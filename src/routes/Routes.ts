@@ -6,10 +6,10 @@ import AuthRouter from './AuthRouter'
 
 const Routes = Router()
 
+Routes.use('/public/auth', AuthRouter)
 Routes.use('/professionals', ProfessionalsRouter)
 Routes.use('/projects', ProjectsRouter)
 Routes.use('/allocations', AllocationsRouter)
-Routes.use('/auth', AuthRouter)
 
 
 Routes.get('/health', (_, res) => res.status(200).send({ success: true }))
