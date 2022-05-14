@@ -1,4 +1,5 @@
 const { Allocations, Professionals, Managers, Projects } = require('../models')
+import moment from 'moment'
 
 export default class AllocationsServices {
   static async findAllAllocationsByProjectId (projectId: string): Promise<any> {
@@ -14,8 +15,8 @@ export default class AllocationsServices {
             return {
               professionalName: allocation.Professional.name,
               managerName: allocation.Manager.name,
-              ingressDate: allocation.created_at,
-              departureDate: allocation.active === false ? allocation.updatedAt : '-',
+              ingressDate: moment(allocation.createdAt).format("DD-MM-YYYY HH:mm:ss"),
+              departureDate: allocation.active === false ? moment(allocation.updatedAt).format("DD-MM-YYYY HH:mm:ss") : '-',
               active: allocation.active
             }
         })
