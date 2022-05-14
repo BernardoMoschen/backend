@@ -35,9 +35,10 @@ const app = () => {
   const server = http.createServer(app)
 
   server.on('listening', () => {
-    console.info(`Server listening on port 8080...`)
+    console.info(`Server listening on port ${process.env.PORT}...`)
   })
 
   return server
 }
+
 export default app

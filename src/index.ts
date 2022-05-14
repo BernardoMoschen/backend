@@ -1,8 +1,8 @@
-import server from './server'
 import dotenv from 'dotenv'
+import server from './server'
 
 dotenv.config()
 
-const port = 8080
+const port = process.env.PORT || 8080
 
 server().listen(port)
