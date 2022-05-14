@@ -1,18 +1,34 @@
 import { Response, Request } from "express";
 const { AdminUser } = require("../models");
+const jwt = require('jsonwebtoken')
+
+interface Token {
+  preferred_username: string
+}
 
 export class AuthController {
+
+  static generateToken(username: Token) {
+    return jwt.sign(username, process.env.TOKEN_SECRET as string, { expiresIn: '86400s'})
+  }
+
   static async LogIn(request: Request, response: Response): Promise<any> {
-    const { email, password } = request.body;
+    const { username, password } = request.body;
 
     return AdminUser.findOne({
       where: {
-        email,
+        email: username,
       },
     })
       .then((user: any) => {
         if (user && password.includes(process.env.APPLICATION_PASSWORD)) {
-          return response.status(200).send(true);
+          const token = AuthController.generateToken(
+            {
+              preferred_username: username
+            }
+          )
+          response.set('Authorization', token)
+        return response.status(200).send(user)
         } else {
           return response.status(401).send("Unauthorized");
         }
