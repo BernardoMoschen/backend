@@ -19,6 +19,7 @@ export class AuthController {
       where: {
         email: username,
       },
+      attributes: ['id', 'name', 'email']
     })
       .then((user: any) => {
         if (user && password.includes(process.env.APPLICATION_PASSWORD)) {

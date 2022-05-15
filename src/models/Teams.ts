@@ -23,5 +23,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
   )
 
+  Teams.associate = function (models: any) {
+    Teams.belongsTo(models.Professionals, {
+      foreignKey: 'id',
+      targetKey: 'team_id'
+    })
+  }
+
   return Teams
 }

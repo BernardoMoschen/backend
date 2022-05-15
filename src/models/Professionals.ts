@@ -62,8 +62,13 @@ module.exports = (sequelize: any, DataTypes: any) => {
 
   Professionals.associate = function (models: any) {
 
+    Professionals.hasOne(models.Teams, {
+      sourceKey: 'team_id',
+      foreignKey: 'id',
+    }),
+
     Professionals.hasOne(models.Phases, {
-      phase_id: 'professional_id',
+      sourceKey: 'phase_id',
       foreignKey: 'id',
     }),
 
