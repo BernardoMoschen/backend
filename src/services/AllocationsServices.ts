@@ -1,4 +1,4 @@
-const { Allocations, Professionals, Managers, Projects, Teams, Phases } = require('../models')
+const { Allocations, Professionals, Managers, Projects, Teams, Phases, Feedback } = require('../models')
 import moment from 'moment'
 
 export default class AllocationsServices {

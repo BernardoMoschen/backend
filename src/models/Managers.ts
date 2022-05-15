@@ -35,6 +35,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
   )
 
   Managers.associate = function (models: any) {
+
+    Managers.hasMany(models.Feedback, {
+      foreignKey: 'id'
+    });
+
     Managers.belongsTo(models.Allocations, {
       foreignKey: 'id',
       targetKey: 'manager_id'

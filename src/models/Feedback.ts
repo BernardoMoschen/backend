@@ -48,5 +48,23 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
   )
 
+  Feedback.associate = function (models: any) {
+    Feedback.belongsTo(models.Managers, {
+      foreignKey: 'manager_id',
+      targetKey: 'id'
+    })
+
+    Feedback.belongsTo(models.Professionals, {
+      foreignKey: 'professional_id',
+      targetKey: 'id'
+    })
+
+    Feedback.belongsTo(models.Projects, {
+      foreignKey: 'project_id',
+      targetKey: 'id'
+    })
+
+  }
+
   return Feedback
 }

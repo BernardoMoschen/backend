@@ -72,10 +72,16 @@ module.exports = (sequelize: any, DataTypes: any) => {
       foreignKey: 'id',
     }),
 
+    Professionals.hasMany(models.Feedback, {
+      foreignKey: 'id'
+    });
+
     Professionals.belongsTo(models.Allocations, {
       foreignKey: 'id',
       targetKey: 'professional_id'
     })
+
+   
   }
 
   return Professionals

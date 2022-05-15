@@ -67,6 +67,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       sourceKey: 'manager_id',
       foreignKey: 'id'
     })
+
   }
 
   return Allocations

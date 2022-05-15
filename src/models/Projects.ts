@@ -35,6 +35,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
       foreignKey: 'id',
       targetKey: 'project_id'
     })
+
+    Projects.hasMany(models.Feedback, {
+      foreignKey: 'id'
+    });
   }
 
   return Projects
