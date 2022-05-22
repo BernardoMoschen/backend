@@ -1,4 +1,5 @@
 import { Response, Request } from 'express'
+import ProjectsRepository from '../repositories/ProjectRepository'
 import ProjectServices from '../services/ProjectsServices'
 
 export class ProjectsController {
@@ -34,4 +35,25 @@ static async getProjectSummaryById (
         )
     })
 }
+
+static async createNewProject (
+  request: Request,
+  response: Response
+): Promise<any> {
+  const { projectName } = request.body
+  try {
+    await ProjectsRepository.insertNewProject(projectName)
+    return response
+        .status(200)
+        .send(`Project created successfully,` )
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error)
+      throw Error(`createNewProject has failed: ${error.message}`)
+    }
+    console.log('Unexpected error', error)
+    return error
+  }
+}
+
 }
