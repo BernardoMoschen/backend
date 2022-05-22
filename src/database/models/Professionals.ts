@@ -3,7 +3,6 @@ import { DataTypes } from 'sequelize'
 // Database
 import database from '../database'
 // Models
-import { Allocations } from './Allocations'
 import { Feedback } from './Feedback'
 import { Phases } from './Phases'
 import { Teams } from './Teams'

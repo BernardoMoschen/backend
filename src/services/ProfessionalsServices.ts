@@ -16,6 +16,7 @@ export default class ProfessionalsServices {
           admissionDate: moment(professional.admission_date).utc().format('DD/MM/YYYY'),
           phase: professional.Phase.name,
           team: professional.Team.name,
+          active: professional.active === true ? 'Ativo' : 'Inativo'
         }
        })
     } catch (error) {

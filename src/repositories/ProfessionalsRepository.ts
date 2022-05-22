@@ -11,7 +11,7 @@ export default class ProfessionalsRepository {
       return Professionals.findAll({
         include: professionalsAssociations,
         order: [
-          ['name', 'ASC']
+          ['name', 'ASC'], ['active', 'ASC']
         ]
       })
     } catch (error) {

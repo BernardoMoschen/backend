@@ -45,8 +45,8 @@ export default class AllocationsServices {
         return {
           professionalName: allocation.Professional.name,
           managerName: allocation.Manager.name,
-          ingressDate: moment(allocation.createdAt).format("DD-MM-YYYY HH:mm:ss"),
-          departureDate: allocation.active === false ? moment(allocation.updatedAt).format("DD-MM-YYYY HH:mm:ss") : '-',
+          ingressDate: moment(allocation.createdAt).format("DD/MM/YYYY"),
+          departureDate: allocation.active === false ? moment(allocation.updatedAt).format("DD/MM/YYYY") : '-',
           active: allocation.active
         }
       })
