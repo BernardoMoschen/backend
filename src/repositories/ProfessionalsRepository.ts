@@ -1,16 +1,19 @@
-// Libs
-import { Op, QueryTypes } from 'sequelize'
-import moment from 'moment'
-// Database
-import database from '../database/database'
 // Models
 import { Professionals } from '../database/models/Professionals'
+import { Phases } from '../database/models/Phases'
+import { Teams } from '../database/models/Teams'
+
 
 
 export default class ProfessionalsRepository {
   static async retrieveAllProfessionals () {
     try {
-      return Professionals.findAll({})
+      return Professionals.findAll({
+        include: professionalsAssociations,
+        order: [
+          ['name', 'ASC']
+        ]
+      })
     } catch (error) {
       if (error instanceof Error) {
         console.log(error)
@@ -22,3 +25,14 @@ export default class ProfessionalsRepository {
   }
 
 }
+
+const professionalsAssociations = [
+  {
+    model: Phases,
+    attributes: ['name']
+  },
+  {
+    model: Teams,
+    attributes: ['name']
+  }
+]
