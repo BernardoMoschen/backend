@@ -1,5 +1,11 @@
-module.exports = (sequelize: any, DataTypes: any) => {
-  const AdminUser = sequelize.define(
+
+// DataTypes
+import { DataTypes } from 'sequelize'
+// Database
+import database from '../database'
+
+
+export const AdminUser = database.sequelizeInstance.define(
     "AdminUser",
     {
       id: {
@@ -34,5 +40,3 @@ module.exports = (sequelize: any, DataTypes: any) => {
     }
   );
 
-  return AdminUser;
-};
