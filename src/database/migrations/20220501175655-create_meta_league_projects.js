@@ -25,6 +25,10 @@ module.exports = {
           type: Sequelize.DataTypes.DATE,
           defaultValue: Sequelize.fn('now')
         },
+        deleted_at: {
+          type: Sequelize.DataTypes.DATE,
+          defaultValue: null
+        },
       })
     },
   
