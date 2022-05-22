@@ -10,7 +10,7 @@ const configs = [
     server: process.env.DB_PORT,
     host: process.env.DB_HOST,
     dialect: 'postgres',
-    logging: false
+    logging: true
   },
   {
     type: 'test',

@@ -9,6 +9,7 @@ export default class ProfessionalsServices {
       const professionalsList = await ProfessionalsRepository.retrieveAllProfessionals()
       return professionalsList.map((professional: any) => { 
         return {
+          id: professional.id,
           name: professional.name,
           email: professional.email,
           birthdayDate: moment(professional.birthday_date).utc().format('DD/MM/YYYY'),

@@ -8,7 +8,7 @@ import {fn, col} from 'sequelize'
 export default class ProjectsService {
   static async findAllProjects (): Promise<any> {
     return Projects.findAll({
-      attributes: ['id', 'name', 'active', [fn("COUNT", col("Allocation.id")), "allocations"]],
+      attributes: ['id', 'name', 'active', [fn("COUNT", col("Allocations.id")), "allocations"]],
       include: {
         model: Allocations,
         attributes: []
@@ -16,7 +16,7 @@ export default class ProjectsService {
       order: [['name', 'ASC']],
       group: ['Projects.id'],
     })
-      .then(async (projectsList: any) => {
+      .then(async (projectsList: any) => {  
         return projectsList
       }).catch((error: any) => {
         throw Error(`findAllProjects has failed: ${error.message}`)

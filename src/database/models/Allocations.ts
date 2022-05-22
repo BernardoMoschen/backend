@@ -18,15 +18,11 @@ export const Allocations = database.sequelizeInstance.define(
     professional_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: Professionals,
-      //   key: 'id'
-      // }
     },
     project_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
+      //  references: {
       //   model: Projects,
       //   key: 'id'
       // }
@@ -34,10 +30,6 @@ export const Allocations = database.sequelizeInstance.define(
     manager_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: Managers,
-      //   key: 'id'
-      // }
     },
     active: {
       type: DataTypes.BOOLEAN,
@@ -57,14 +49,9 @@ export const Allocations = database.sequelizeInstance.define(
     timestamps: false
   }
   )
-  
+
   Allocations.hasOne(Professionals, {
     sourceKey: 'professional_id',
-    foreignKey: 'id'
-  })
-  
-  Allocations.hasOne(Projects, {
-    sourceKey: 'project_id',
     foreignKey: 'id'
   })
   
