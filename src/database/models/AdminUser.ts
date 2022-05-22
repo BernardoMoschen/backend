@@ -1,9 +1,7 @@
-
 // DataTypes
 import { DataTypes } from 'sequelize'
 // Database
 import database from '../database'
-
 
 export const AdminUser = database.sequelizeInstance.define(
     "AdminUser",

@@ -1,4 +1,8 @@
-const { Projects, Allocations, Professionals, Managers } = require('../models')
+import {Allocations} from '../database/models/Allocations'
+import {Professionals} from '../database/models/Professionals'
+import {Managers} from '../database/models/Managers'
+import {Projects} from '../database/models/Projects'
+
 import {fn, col} from 'sequelize'
 
 export default class ProjectsService {

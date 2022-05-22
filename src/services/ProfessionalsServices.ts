@@ -1,4 +1,4 @@
-const {Professionals} = require('../models')
+import { Professionals } from "../database/models/Professionals"
 
 export default class ProfessionalsServices {
   static async findAllProfessionals (): Promise<any> {

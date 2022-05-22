@@ -1,74 +1,74 @@
-// const { Professionals, Projects, Managers } = require('../models')
+// DataTypes
+import { DataTypes } from 'sequelize'
+// Database
+import database from '../database'
+// Models
+import { Professionals } from './Professionals'
+import { Projects } from './Projects'
+import { Managers } from './Managers'
 
-module.exports = (sequelize: any, DataTypes: any) => {
-  const Allocations = sequelize.define(
-    'Allocations',
-    {
-      id: {
-        primaryKey: true,
-        type: DataTypes.INTEGER,
-        autoIncrement: true
-      },
-      professional_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        // references: {
-        //   model: Professionals,
-        //   key: 'id'
-        // }
-      },
-      project_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        // references: {
-        //   model: Projects,
-        //   key: 'id'
-        // }
-      },
-      manager_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        // references: {
-        //   model: Managers,
-        //   key: 'id'
-        // }
-      },
-      active: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true,
-        allowNull: false
-      },
-      created_at: {
-        type: DataTypes.DATE,
-      },
-      updated_at: {
-        type: DataTypes.DATE,
-      },
+export const Allocations = database.sequelizeInstance.define(
+  'Allocations',
+  {
+    id: {
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true
     },
-    {
-      schema: 'public',
-      tableName: 'meta_league_allocations',
-      timestamps: false
-    }
-  )
-
-  Allocations.associate = function (models: any) {
-    Allocations.hasOne(models.Professionals, {
-      sourceKey: 'professional_id',
-      foreignKey: 'id'
-    })
-
-    Allocations.hasOne(models.Projects, {
-      sourceKey: 'project_id',
-      foreignKey: 'id'
-    })
-
-    Allocations.hasOne(models.Managers, {
-      sourceKey: 'manager_id',
-      foreignKey: 'id'
-    })
-
+    professional_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      // references: {
+      //   model: Professionals,
+      //   key: 'id'
+      // }
+    },
+    project_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      // references: {
+      //   model: Projects,
+      //   key: 'id'
+      // }
+    },
+    manager_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      // references: {
+      //   model: Managers,
+      //   key: 'id'
+      // }
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+      allowNull: false
+    },
+    created_at: {
+      type: DataTypes.DATE,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+    },
+  },
+  {
+    schema: 'public',
+    tableName: 'meta_league_allocations',
+    timestamps: false
   }
-
-  return Allocations
-}
+  )
+  
+  Allocations.hasOne(Professionals, {
+    sourceKey: 'professional_id',
+    foreignKey: 'id'
+  })
+  
+  Allocations.hasOne(Projects, {
+    sourceKey: 'project_id',
+    foreignKey: 'id'
+  })
+  
+  Allocations.hasOne(Managers, {
+    sourceKey: 'manager_id',
+    foreignKey: 'id'
+  })

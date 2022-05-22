@@ -1,6 +1,6 @@
 require('dotenv').config()
 const Sequelize = require('sequelize')
-const dbConfig = require('../../../config')
+const dbConfig = require('../../config/config')
 
 Sequelize.DATE.prototype._stringify = function _stringify (date: any, options: any) {
   return this._applyTimezone(date, options).format('YYYY-MM-DD HH:mm:ss')

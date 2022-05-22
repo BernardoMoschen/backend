@@ -1,5 +1,5 @@
 import { Response, Request } from "express";
-const { AdminUser } = require("../models");
+import { AdminUser } from '../database/models/AdminUser'
 const jwt = require('jsonwebtoken')
 
 interface Token {

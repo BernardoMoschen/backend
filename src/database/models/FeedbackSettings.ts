@@ -1,5 +1,9 @@
-module.exports = (sequelize: any, DataTypes: any) => {
-  const FeedbackSettings = sequelize.define(
+// DataTypes
+import { DataTypes } from 'sequelize'
+// Database
+import database from '../database'
+
+export const FeedbackSettings = database.sequelizeInstance.define(
     'FeedbackSettings',
     {
       id: {
@@ -25,6 +29,3 @@ module.exports = (sequelize: any, DataTypes: any) => {
       timestamps: false
     }
   )
-
-  return FeedbackSettings
-}

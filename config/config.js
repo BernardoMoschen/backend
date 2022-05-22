@@ -9,7 +9,7 @@ const configs = [
     database: process.env.DB_NAME,
     server: process.env.DB_PORT,
     host: process.env.DB_HOST,
-    dialect: 'postgress',
+    dialect: 'postgres',
     logging: false
   },
   {
@@ -19,7 +19,7 @@ const configs = [
     database: process.env.DB_NAME,
     server: process.env.DB_PORT,
     host: process.env.DB_HOST,
-    dialect: 'mssql',
+    dialect: 'postgres',
     dialectOptions: {
       server: process.env.DB_HOST,
       authentication: {
@@ -45,7 +45,7 @@ const configs = [
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     server: process.env.DB_PORT,
-    dialect: 'mssql',
+    dialect: 'postgres',
     logging: false,
     dialectOptions: {
       server: process.env.DB_HOST,
