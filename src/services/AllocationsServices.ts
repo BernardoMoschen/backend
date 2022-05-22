@@ -85,7 +85,7 @@ export default class AllocationsServices {
 const allocationsAssociations = [
   {
     model: Professionals,
-    attributes: ['name',  'email', 'admission_date'],
+    attributes: ['name',  'email'],
     include: [
       {
         model: Teams,
