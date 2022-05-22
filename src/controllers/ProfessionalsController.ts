@@ -1,4 +1,5 @@
 import { Response, Request } from 'express'
+import ProfessionalsRepository from '../repositories/ProfessionalsRepository'
 import ProfessionalsServices from '../services/ProfessionalsServices'
 
 export class ProfessionalsController {
@@ -6,7 +7,7 @@ export class ProfessionalsController {
     _request: Request,
     response: Response
   ): Promise<any> {
-    return ProfessionalsServices.findAllProfessionals()
+    return ProfessionalsRepository.retrieveAllProfessionals()
       .then((professionalsList: any[]) => {
         return response.status(200).send(professionalsList)
       })

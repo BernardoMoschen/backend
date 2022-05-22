@@ -3,7 +3,7 @@ import { ProfessionalsController } from '../controllers/ProfessionalsController'
 
 const ProfessionalsRouter = Router()
 
-ProfessionalsRouter.get('/', ProfessionalsController.getAllProfessionals)
+ProfessionalsRouter.get('/get-all', ProfessionalsController.getAllProfessionals)
 
 
 export default ProfessionalsRouter
