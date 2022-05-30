@@ -99,7 +99,7 @@ const allocationsAssociations = [
   },
   {
     model: Managers,
-    attributes: ['name']
+    attributes: ['name', 'email']
   },
   {
     model: Projects,

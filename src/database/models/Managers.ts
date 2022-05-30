@@ -42,10 +42,6 @@ export const Managers = database.sequelizeInstance.define(
   )
   
   
-  Managers.hasMany(Feedback, {
-    foreignKey: 'id'
-  });
-  
   // Managers.belongsTo(Allocations, {
   //   foreignKey: 'id',
   //   targetKey: 'manager_id'

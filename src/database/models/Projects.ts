@@ -2,9 +2,6 @@
 import { DataTypes } from 'sequelize'
 // Database
 import database from '../database'
-// Models
-import { Allocations } from './Allocations'
-import { Feedback } from './Feedback'
 
 export const Projects = database.sequelizeInstance.define(
     'Projects',
@@ -37,10 +34,6 @@ export const Projects = database.sequelizeInstance.define(
     }
   )
 
-  Projects.hasMany(Allocations, {
-    sourceKey: 'id', 
-    foreignKey: 'project_id'
-  });
 
 
 // Projects.hasMany(Feedback, {

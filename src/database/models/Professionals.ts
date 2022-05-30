@@ -3,7 +3,6 @@ import { DataTypes } from 'sequelize'
 // Database
 import database from '../database'
 // Models
-import { Feedback } from './Feedback'
 import { Phases } from './Phases'
 import { Teams } from './Teams'
 
@@ -76,10 +75,7 @@ export const Professionals = database.sequelizeInstance.define(
     sourceKey: 'phase_id',
     foreignKey: 'id',
   }),
-  
-  Professionals.hasMany(Feedback, {
-    foreignKey: 'id'
-  });
+
   
   // Professionals.belongsTo(Allocations, {
   //   foreignKey: 'id',
