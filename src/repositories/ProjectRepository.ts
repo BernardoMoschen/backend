@@ -39,24 +39,24 @@ export default class ProjectsRepository {
     }
   }
 
-  static async deleteProject (projectId: number) {
-    try {
-      await Projects.update({
-          deleted_at: new Date().toDateString()
-      },
-      {
-        where: {
-          id: projectId
-        }
-      })
-    } catch (error) {
-      if (error instanceof Error) {
-        console.log(error)
-        throw Error(`deleteProject has failed: ${error.message}`)
-      }
-      console.log('Unexpected error', error)
-      return error
-    }
-  }
+  // static async deleteProject (projectId: number) {
+  //   try {
+  //     await Projects.update({
+  //         deleted_at: new Date().toDateString()
+  //     },
+  //     {
+  //       where: {
+  //         id: projectId
+  //       }
+  //     })
+  //   } catch (error) {
+  //     if (error instanceof Error) {
+  //       console.log(error)
+  //       throw Error(`deleteProject has failed: ${error.message}`)
+  //     }
+  //     console.log('Unexpected error', error)
+  //     return error
+  //   }
+  // }
 }
  

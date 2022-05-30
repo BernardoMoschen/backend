@@ -2,19 +2,21 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-      await queryInterface.createTable('meta_league_feedback_settings', {
+      await queryInterface.createTable('meta_league_feedbacks', {
         id: {
           primaryKey: true,
           type: Sequelize.DataTypes.INTEGER,
           autoIncrement: true
         },
-        description: {
-          type: Sequelize.DataTypes.STRING,
-          allowNull: false,
-        },
-        milliseconds_interval: {
-          type: Sequelize.DataTypes.BIGINT,
-          allowNull: false
+        allocation_id: {
+          type: Sequelize.DataTypes.INTEGER,
+          references: {
+            model: {
+              tableName: 'meta_league_allocations',
+              schema: 'public'
+            },
+            key: 'id'
+          },
         },
         created_at: {
           type: Sequelize.DataTypes.DATE,
@@ -24,7 +26,7 @@ module.exports = {
     },
   
     async down (queryInterface, _Sequelize) {
-      return queryInterface.dropTable('meta_league_feedback_settings')
+      return queryInterface.dropTable('meta_league_feedbacks')
     }
   
 };
