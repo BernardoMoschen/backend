@@ -74,7 +74,7 @@ export const Professionals = database.sequelizeInstance.define(
   Professionals.hasOne(Phases, {
     sourceKey: 'phase_id',
     foreignKey: 'id',
-  }),
+  })
 
   
   // Professionals.belongsTo(Allocations, {

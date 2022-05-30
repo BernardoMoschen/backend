@@ -15,33 +15,9 @@ export const Feedback = database.sequelizeInstance.define(
       type: DataTypes.INTEGER,
       autoIncrement: true
     },
-    professional_id: {
+    allocation_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: Professionals,
-      //   key: 'id'
-      // }
-    },
-    project_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      // references: {
-      //   model: Project,
-      //   key: 'id'
-      // }
-    },
-    manager_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      // references: {
-      //   model: Managers,
-      //   key: 'id'
-      // }
-    },
-    copy_to: {
-      type: DataTypes.TEXT,
-      allowNull: true,
     },
     created_at: {
       type: DataTypes.DATE,

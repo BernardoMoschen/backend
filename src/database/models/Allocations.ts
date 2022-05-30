@@ -1,3 +1,4 @@
+import { Feedback } from './Feedback';
 // DataTypes
 import { DataTypes } from 'sequelize'
 // Database
@@ -58,4 +59,9 @@ export const Allocations = database.sequelizeInstance.define(
   Allocations.hasOne(Managers, {
     sourceKey: 'manager_id',
     foreignKey: 'id'
+  })
+
+  Allocations.hasMany(Feedback, {
+    sourceKey: 'id',
+    foreignKey: 'allocation_id'
   })
